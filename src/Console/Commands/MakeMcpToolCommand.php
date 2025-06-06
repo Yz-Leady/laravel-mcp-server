@@ -49,7 +49,7 @@ class MakeMcpToolCommand extends Command
     public function handle()
     {
         $className = $this->getClassName();
-        $path = $this->getPath($className);
+        $path      = $this->getPath($className);
 
         // Check if file already exists
         if ($this->files->exists($path)) {
@@ -175,7 +175,11 @@ class MakeMcpToolCommand extends Command
      */
     protected function getStubPath()
     {
-        return __DIR__.'/../../stubs/tool.stub';
+        $path = config('mcp-server.stub_path', '');
+        if (blank($path)) {
+            $path = __DIR__.'/../../stubs/tool.stub';
+        }
+        return $path;
     }
 
     /**
@@ -218,7 +222,7 @@ class MakeMcpToolCommand extends Command
         }
 
         $toolsArrayContent = $matches[1];
-        $fullEntry = "\n        {$toolClassName}::class,";
+        $fullEntry         = "\n        {$toolClassName}::class,";
 
         // Check if the tool is already registered
         if (strpos($toolsArrayContent, $toolClassName) !== false) {
@@ -229,7 +233,7 @@ class MakeMcpToolCommand extends Command
 
         // Add the new tool to the tools array
         $newToolsArrayContent = $toolsArrayContent.$fullEntry;
-        $newContent = str_replace($toolsArrayContent, $newToolsArrayContent, $content);
+        $newContent           = str_replace($toolsArrayContent, $newToolsArrayContent, $content);
 
         // Write the updated content back to the config file
         if (file_put_contents($configPath, $newContent)) {

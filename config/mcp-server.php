@@ -45,6 +45,7 @@ return [
     */
     'server_provider' => 'streamable_http',
 
+    'stub_path' => '',
     /*
     |--------------------------------------------------------------------------
     | MCP Server Endpoints
