@@ -158,7 +158,7 @@ class MakeMcpToolCommand extends Command
         $toolName = preg_replace('/[^a-z0-9\-]/', '', $toolName);
 
         // Ensure no consecutive hyphens
-        $toolName = preg_replace('/\-+/', '-', $toolName);
+        $toolName = preg_replace('/\-+/', '_', $toolName);
 
         // Ensure it starts with a letter
         if (! preg_match('/^[a-z]/', $toolName)) {
