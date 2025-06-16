@@ -1,12 +1,12 @@
 {
-    "name": "opgginc/laravel-mcp-server",
+    "name": "leady/laravel-mcp-server",
     "description": "This is my package laravel-mcp-server",
     "keywords": [
-        "opgginc",
+        "leady",
         "laravel",
         "laravel-mcp-server"
     ],
-    "homepage": "https://github.com/opgginc/laravel-mcp-server",
+    "homepage": "https://github.com/Yz-Leady/laravel-mcp-server",
     "license": "MIT",
     "require": {
         "php": "^8.2",
