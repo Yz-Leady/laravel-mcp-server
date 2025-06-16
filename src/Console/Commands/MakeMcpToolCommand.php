@@ -175,7 +175,11 @@ class MakeMcpToolCommand extends Command
      */
     protected function getStubPath()
     {
-        return __DIR__.'/../../stubs/tool.stub';
+        $path = config('mcp-server.stub_path', '');
+        if (blank($path)) {
+            $path = __DIR__.'/../../stubs/tool.stub';
+        }
+        return $path;
     }
 
     /**
